@@ -1,0 +1,233 @@
+/* ============================================================
+   Aline & Julie — 30 ans · "Sunset Gala"
+   Design tokens + base styles
+   ============================================================ */
+
+:root {
+  /* --- Palette : Sunset Gala vibrant (magenta · orange · jaune) --- */
+  --cream:        #FDF4F1;   /* fond principal, crème légèrement rosée */
+  --cream-deep:   #FAE2E5;   /* panneaux cotton candy doux */
+  --shell:        #F2D6D6;   /* arrière-plan hors colonne */
+  --coral:        #F07F23;   /* sun orange */
+  --coral-soft:   #F7A24E;
+  --terracotta:   #D11E7C;   /* magenta */
+  --terracotta-d: #A8155F;   /* magenta profond (titres) */
+  --rose:         #EFB3DD;   /* cotton candy */
+  --rose-deep:    #E07CB8;
+  --fuchsia:      #C9197D;
+  --apricot:      #F4A93C;
+  --gold:         #E0691F;   /* orange brûlé lisible (ex-doré) */
+  --gold-soft:    #F6A64E;
+
+  --ink:          #3C2A22;   /* texte principal (brun chaud) */
+  --ink-soft:     #755F54;
+  --ink-faint:    #A6917f;
+  --line:         #E3D2BE;   /* filets / séparateurs */
+  --on-dark:      #FCEFE2;
+
+  /* --- Typo --- */
+  --f-script: "Pinyon Script", cursive;
+  --f-serif:  "Cormorant Garamond", Georgia, serif;
+  --f-sans:   "Jost", system-ui, -apple-system, sans-serif;
+
+  /* --- Rayons & ombres --- */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --sh-card: 0 18px 40px -22px rgba(140, 62, 41, 0.45);
+  --sh-soft: 0 10px 30px -18px rgba(60, 42, 34, 0.35);
+  --sh-float: 0 14px 38px -10px rgba(60, 42, 34, 0.28);
+
+  --maxw: 460px; /* largeur colonne mobile */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--shell);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* ambiance hors-colonne sur grand écran : voile coloré subtil */
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(209,30,124,0.18), transparent 60%),
+    radial-gradient(90% 50% at 100% 100%, rgba(240,127,35,0.14), transparent 55%),
+    var(--shell);
+  background-attachment: fixed;
+}
+
+#root { min-height: 100vh; }
+
+/* La colonne "appareil" plein écran mobile, centrée sur desktop */
+.app-shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--cream);
+  position: relative;
+  overflow-x: clip;
+  box-shadow: 0 0 60px -10px rgba(60,42,34,0.35);
+}
+
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; }
+
+/* --- Type helpers --- */
+.script {
+  font-family: var(--f-script);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--terracotta);
+}
+.serif { font-family: var(--f-serif); }
+.eyebrow {
+  font-family: var(--f-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+/* Filet décoratif avec losange central */
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gold);
+}
+.rule::before, .rule::after {
+  content: "";
+  height: 1px;
+  width: 46px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft));
+}
+.rule::after { background: linear-gradient(90deg, var(--gold-soft), transparent); }
+.rule .diamond {
+  width: 6px; height: 6px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+
+/* placeholders rayés (galeries denses) */
+.ph {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(181,84,58,0.07) 0 10px,
+      rgba(181,84,58,0.0) 10px 20px),
+    var(--cream-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 8px;
+}
+
+/* boutons */
+.btn {
+  border: none;
+  border-radius: 999px;
+  font-family: var(--f-sans);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s, background .25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(.96); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--coral), var(--terracotta));
+  color: var(--on-dark);
+  padding: 15px 30px;
+  font-size: 15px;
+  box-shadow: 0 12px 26px -12px rgba(181,84,58,0.9);
+}
+.btn-primary:hover { box-shadow: 0 16px 32px -10px rgba(181,84,58,0.95); transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--terracotta-d);
+  border: 1.5px solid var(--line);
+  padding: 13px 24px;
+  font-size: 14px;
+}
+.btn-ghost:hover { border-color: var(--coral); color: var(--terracotta); }
+
+/* sections */
+.section { padding: 64px 22px; position: relative; }
+.section-tight { padding: 44px 22px; }
+
+/* scrollbar discret */
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* sélection */
+::selection { background: var(--rose); color: var(--terracotta-d); }
+
+/* utilitaires d'animation au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+}
+
+/* ============================================================
+   Animations & champs de formulaire (issus du prototype)
+   ============================================================ */
+
+/* Animation d'entrée du hero */
+.hero-anim {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroIn 0.95s cubic-bezier(.2,.7,.2,1) forwards;
+  animation-delay: calc(var(--i, 0) * 110ms + 150ms);
+}
+@keyframes heroIn { to { opacity: 1; transform: none; } }
+body.no-anim .hero-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+/* filet de sécurité : si l'animation ne se déclenche pas (onglet en arrière-plan, etc.) */
+body.hero-ready .hero-anim { opacity: 1 !important; transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
+
+@keyframes scrollPulse { 0%,100% { transform: scaleY(0.4); opacity: 0.4; transform-origin: top; } 50% { transform: scaleY(1); opacity: 1; } }
+@keyframes sheetUp { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* champs de formulaire */
+.aj-input {
+  width: 100%;
+  font-family: var(--f-sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 13px 15px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.aj-input::placeholder { color: var(--ink-faint); }
+.aj-input:focus { border-color: var(--coral); box-shadow: 0 0 0 4px rgba(226,121,90,0.14); }

@@ -3,7 +3,7 @@
 export const EVENT = {
   names: "Aline & Julie",
   title: "Aline & Julie fêtent leurs 30 ans",
-  subtitle: "Une soirée exceptionnelle entourées de ceux qu'on aime.",
+  subtitle: "Une seule règle : que cette soirée reste inoubliable.",
   // Vendredi 4 septembre 2026, 17h00 (heure locale)
   dateISO: "2026-09-04T17:00:00",
   dateLabel: "Vendredi 4 septembre 2026",
@@ -14,16 +14,16 @@ export const EVENT = {
   mapsUrl:
     "https://www.google.com/maps/dir//Domaine+de+la+Roche+Couloir,+35+ter+Rte+de+la+Brosse,+78460+Chevreuse/@48.8665157,2.3340766,4884m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x47e681c6002e3b33:0x9721e5c749b8c44f!2m2!1d2.0233159!2d48.7191545?entry=ttu",
   // Numéro des organisatrices pour le message "Je participe" — À REMPLACER par le vrai numéro.
-  organisersPhone: "+33600000000",
+  organisersPhone: "+33601415820",
 };
 
 /* Programme de la soirée */
 export const PROGRAMME = [
-  { time: "17h00", title: "Accueil", desc: "Bulles de bienvenue & retrouvailles dans le parc.", icon: "arrive" },
-  { time: "18h00", title: "Apéro Jazz", desc: "Bulles, bouchées et trio jazz pour lancer la soirée en douceur.", icon: "glass" },
+  { time: "17h00", title: "Accueil", desc: "Bulles & retrouvailles", icon: "arrive" },
+  { time: "18h00", title: "Apéro Jazz", desc: "On lance la soirée en douceur", icon: "glass" },
   { time: "20h00", title: "Dîner — barbecue géant", desc: "Grand barbecue convivial sous les guirlandes du domaine.", icon: "plate" },
-  { time: "22h00", title: "À vous de jouer !", desc: "Un temps libre pour vos activités, jeux et discours surprises.", icon: "quote", cta: "Je participe" },
-  { time: "23h00", title: "DJ Set & Dancefloor", desc: "On danse jusqu'au bout de la nuit.", icon: "note" },
+  { time: "22h00", title: "À vous de jouer !", desc: "Temps libre pour vos surprises", icon: "quote", cta: "Je participe" },
+  { time: "23h00", title: "DJ Set & Dancefloor", desc: "On entre officiellement dans la zone « on verra demain ».", icon: "note" },
 ];
 
 /* Dress code — moodboard "Sunset Gala" */
@@ -39,30 +39,30 @@ export const DRESSCODE = {
     { slot: "dc-femmes", label: "Tenues femmes", hint: "robe satinée · slip dress · mini fleurie · couleurs vives" },
     { slot: "dc-hommes", label: "Tenues hommes", hint: "chemise colorée · lin · orange / rose / jaune assumé" },
   ],
-  do: ["Couleurs vives & saturées", "Rose, orange, magenta, jaune", "Satin & imprimés fleuris", "Mini, slip dress ou robe longue"],
-  avoid: ["Total look noir", "Tons neutres / beiges ternes", "Tenue stricte de gala"],
+  do: ["Élégance", "Couleurs chaudes", "Matières fluides", "Effet « wow mais naturel »"],
+  avoid: ["Noir total (on n'est pas à un enterrement)", "Tenue de bureau", "« J'ai rien trouvé j'ai mis ça »"],
 };
 
 /* Galeries */
 export const GALLERIES = {
   lieu: [
-    { slot: "lieu-1", label: "Façade du domaine" },
-    { slot: "lieu-2", label: "Le parc" },
-    { slot: "lieu-3", label: "La grande salle" },
+    { slot: "lieu-1", label: "" },
+    { slot: "lieu-2", label: "" },
+    { slot: "lieu-3", label: "" },
   ],
   duo: [
-    { slot: "duo-1", label: "Nous deux" },
-    { slot: "duo-2", label: "Mini nous" },
-    { slot: "duo-3", label: "Entre copines" },
-    { slot: "duo-4", label: "En vadrouille" },
-    { slot: "duo-5", label: "Fous rires" },
+    { slot: "duo-1", label: "" },
+    { slot: "duo-2", label: "" },
+    { slot: "duo-3", label: "" },
+    { slot: "duo-4", label: "" },
+    { slot: "duo-5", label: "" },
   ],
 };
 
 /* Infos pratiques */
 export const INFOS_PRATIQUES = [
-  { title: "Parking", icon: "route", text: "Parking gratuit sur place, dans l'enceinte du domaine. Voiturier de cœur à l'arrivée 😉" },
-  { title: "Dormir sur place", icon: "pin", text: "Plein d'hôtels et chambres d'hôtes adorables à 5–10 min. On vous a fait une petite sélection :", link: { label: "Voir les hôtels proches", url: "https://www.booking.com/searchresults.fr.html?ss=Chevreuse" } },
+  { title: "Parking", icon: "route", text: "Parking sur place (et quelques voitures qui resteront peut-être le lendemain…)" },
+  { title: "Dormir sur place", icon: "pin", text: "Très bonne idée. Vraiment. Possibilité de dormir sur le domaine ou de prendre un hôtel à côté :", link: { label: "Voir les hôtels proches", url: "https://www.booking.com/searchresults.fr.html?ss=Chevreuse" } },
 ];
 
 /* ============================================================

@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+*.log
+.vercel
+
+# fichiers de vérification (à ignorer)
+verify.mjs
+verify-*.png
+vite.config.js.timestamp-*.mjs

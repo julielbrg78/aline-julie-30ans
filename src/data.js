@@ -62,7 +62,7 @@ export const GALLERIES = {
 /* Infos pratiques */
 export const INFOS_PRATIQUES = [
   { title: "Parking", icon: "route", text: "Parking sur place (et quelques voitures qui resteront peut-être le lendemain…)" },
-  { title: "Dormir sur place", icon: "pin", text: "Très bonne idée. Vraiment. Possibilité de dormir sur le domaine ou de prendre un hôtel à côté :", link: { label: "Voir les hôtels proches", url: "https://www.booking.com/searchresults.fr.html?ss=Chevreuse" } },
+  { title: "Dormir sur place", icon: "pin", text: "Pleins d'hôtels et chambres disponibles dans le coin :", link: { label: "Voir les hôtels proches", url: "https://www.booking.com/searchresults.fr.html?ss=Chevreuse" } },
 ];
 
 /* ============================================================

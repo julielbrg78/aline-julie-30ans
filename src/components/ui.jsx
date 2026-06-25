@@ -27,7 +27,7 @@ export function SectionTitle({ eyebrow, title, script, sub, align = "center" }) 
 
 /* ---- Photo : vraie image avec repli élégant "Photo à venir" ----
    Déposez l'image correspondante dans public/photos/ (voir data.js → PHOTOS). */
-export function PhotoImg({ id, label, src, radius, style, className }) {
+export function PhotoImg({ id, label, src, radius, style, className, objectPosition }) {
   const [failed, setFailed] = useState(false);
   const url = src || PHOTOS[id];
   const showImg = url && !failed;
@@ -42,7 +42,7 @@ export function PhotoImg({ id, label, src, radius, style, className }) {
           src={url}
           alt={label || ""}
           onError={() => setFailed(true)}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: objectPosition || "center", display: "block" }}
         />
       ) : (
         <div style={{

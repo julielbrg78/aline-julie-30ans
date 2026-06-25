@@ -219,7 +219,7 @@ export function About() {
             <Reveal key={p.slot} delay={i * 70} style={big ? { gridColumn: "1 / -1" } : undefined}>
               <figure style={{ margin: 0, background: "#fff", padding: "10px 10px 16px", borderRadius: 6, boxShadow: "var(--sh-card)", transform: `rotate(${rot}deg)`, position: "relative", transition: "transform .3s" }}>
                 <span style={{ position: "absolute", top: -9, left: "50%", transform: "translateX(-50%) rotate(-4deg)", width: 56, height: 18, background: tape, opacity: 0.85, borderRadius: 2, boxShadow: "0 2px 4px -2px rgba(0,0,0,0.3)", zIndex: 1 }}></span>
-                <PhotoImg id={p.slot} label={p.label} style={{ width: "100%", height: big ? 240 : 150, borderRadius: 3 }} />
+                <PhotoImg id={p.slot} label={p.label} objectPosition={big ? "center top" : "center"} style={{ width: "100%", height: big ? 240 : 150, borderRadius: 3 }} />
               </figure>
             </Reveal>
           );

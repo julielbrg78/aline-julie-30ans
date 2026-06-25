@@ -113,7 +113,7 @@ export function Rsvp() {
 
   return (
     <section className="section" data-screen-label="RSVP" style={{ background: "linear-gradient(180deg, var(--rose), var(--coral-soft))" }}>
-      <Reveal><SectionTitle eyebrow="On compte sur toi ✨" title="Tu viens ?" script sub="Un petit oui nous rendrait très heureuses — réponds avant le 1ᵉʳ août !" /></Reveal>
+      <Reveal><SectionTitle eyebrow="On compte sur toi ✨" title="Tu viens ?" script sub="Dis-nous si tu viens, on doit gérer un minimum d'organisation (et de champagne) ! 🍾" /></Reveal>
       <Reveal delay={60}>
         <form onSubmit={submit} style={{ background: "rgba(255,255,255,0.78)", borderRadius: "var(--r-xl)", padding: "24px 22px 26px", border: "1px solid rgba(255,255,255,0.8)", boxShadow: "var(--sh-card)", display: "flex", flexDirection: "column", gap: 18 }}>
           <Field label="Ton nom">
@@ -180,7 +180,7 @@ export function PhotoWall() {
 
   return (
     <section className="section" data-screen-label="Mur de photos" style={{ background: "var(--cream-deep)" }}>
-      <Reveal><SectionTitle eyebrow="En direct" title="Mur de photos" script sub="Partagez vos clichés pendant la soirée — ils s'affichent ici en temps réel." /></Reveal>
+      <Reveal><SectionTitle eyebrow="En direct" title="Mur de photos" script sub="On veut vos plus beaux clichés de la soirée !" /></Reveal>
 
       <Reveal delay={50}>
         <div style={{ background: "#fff", borderRadius: "var(--r-xl)", padding: "26px 22px 24px", border: "1px solid var(--line)", boxShadow: "var(--sh-card)", textAlign: "center", marginBottom: 22 }}>
@@ -252,7 +252,7 @@ export function Guestbook() {
 
   return (
     <section className="section" data-screen-label="Livre d'or" style={{ background: "var(--cream)" }}>
-      <Reveal><SectionTitle eyebrow="Vos mots doux" title="Livre d'or" script sub="Vœux, anecdotes et souvenirs pour les 30 ans." /></Reveal>
+      <Reveal><SectionTitle eyebrow="Vos mots doux" title="Livre d'or" script sub="Messages doux, drôles ou légèrement compromettants bienvenus." /></Reveal>
 
       <Reveal delay={50}>
         <button className="btn btn-primary" style={{ width: "100%", marginBottom: 18 }} onClick={() => setOpen(true)}>

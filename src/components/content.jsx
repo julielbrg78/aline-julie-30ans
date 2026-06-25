@@ -93,7 +93,7 @@ export function Infos() {
   const E = EVENT;
   return (
     <section className="section" data-screen-label="Infos pratiques" style={{ background: "var(--cream)" }}>
-      <Reveal><SectionTitle eyebrow="L'essentiel" title="Quand & où" script sub="Note tout, on ne veut surtout pas que tu rates ça !" /></Reveal>
+      <Reveal><SectionTitle eyebrow="L'essentiel" title="Quand & où" script sub="Note bien la date, on ne fait pas ça deux fois !" /></Reveal>
       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
         <Reveal delay={60}>
           <InfoCard icon="cal" kicker="Quand">
@@ -145,7 +145,7 @@ export function Lieu() {
   const photos = GALLERIES.lieu;
   return (
     <section className="section" data-screen-label="Le lieu" style={{ background: "var(--cream-deep)" }}>
-      <Reveal><SectionTitle eyebrow="Le décor" title="Le domaine" script sub="Un écrin de verdure à 45 min de Paris — le cadre parfait pour faire la fête." /></Reveal>
+      <Reveal><SectionTitle eyebrow="Le décor" title="Le domaine" script sub="Un lieu canon à 45 min de Paris, parfait pour y faire la fiesta !" /></Reveal>
 
       <Reveal delay={60}>
         <div style={{ display: "grid", gap: 10, marginBottom: 16 }}>
@@ -208,7 +208,7 @@ export function About() {
         ))}
       </div>
 
-      <Reveal><SectionTitle eyebrow="Les reines du jour 👑" title="Aline & Julie" script sub="30 ans d'amitié, de fous rires et de bêtises — la suite se fête avec vous !" /></Reveal>
+      <Reveal><SectionTitle eyebrow="Les Queens du jour" title="Aline & Julie" script sub="30 ans d'amitié, pas de mode d'emploi, mais beaucoup de vécu !" /></Reveal>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 8 }}>
         {duo.slice(0, 5).map((p, i) => {
@@ -238,7 +238,7 @@ export function DressCode() {
         <header style={{ textAlign: "center", marginBottom: 26 }}>
           <div className="eyebrow" style={{ color: "#FBDC3F" }}>Dress code</div>
           <h2 className="script" style={{ fontSize: 60, color: "var(--on-dark)", margin: "8px 0 6px", textShadow: "0 2px 18px rgba(120,10,70,0.35)" }}>Sunset Gala</h2>
-          <p className="serif" style={{ fontStyle: "italic", fontSize: 18, opacity: 0.96, margin: 0 }}>Couleurs vives, satin et bonne humeur.</p>
+          <p className="serif" style={{ fontStyle: "italic", fontSize: 18, opacity: 0.96, margin: 0 }}>Chic, coloré, et légèrement trop stylé pour être raisonnable.</p>
         </header>
       </Reveal>
 
@@ -271,7 +271,7 @@ export function DressCode() {
       <Reveal delay={120}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 22 }}>
           <div style={{ background: "rgba(255,255,255,0.16)", borderRadius: "var(--r-md)", padding: "16px 16px" }}>
-            <div className="eyebrow" style={{ color: "#FBDC3F", marginBottom: 10 }}>On adopte</div>
+            <div className="eyebrow" style={{ color: "#FBDC3F", marginBottom: 10 }}>On veut</div>
             {dc.do.map((x, i) => (
               <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: 13, marginBottom: 8, lineHeight: 1.35 }}>
                 <span style={{ color: "#FBDC3F", marginTop: 1 }}><Icon name="check" size={15} stroke="#FBDC3F" /></span>{x}

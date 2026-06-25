@@ -145,7 +145,7 @@ export function Lieu() {
   const photos = GALLERIES.lieu;
   return (
     <section className="section" data-screen-label="Le lieu" style={{ background: "var(--cream-deep)" }}>
-      <Reveal><SectionTitle eyebrow="Le décor" title="Le domaine" script sub="Un lieu canon à 45 min de Paris, parfait pour y faire la fiesta !" /></Reveal>
+      <Reveal><SectionTitle eyebrow="Le décor" title="Le domaine" script sub="Un lieu canon à 45 min de Paris, parfait pour y faire la fiesta toute la noche !" /></Reveal>
 
       <Reveal delay={60}>
         <div style={{ display: "grid", gap: 10, marginBottom: 16 }}>

@@ -159,7 +159,13 @@ export function Lieu() {
 
       <Reveal delay={120}>
         <div style={{ borderRadius: "var(--r-lg)", overflow: "hidden", boxShadow: "var(--sh-soft)", border: "1px solid var(--line)", background: "#fff" }}>
-          <MapVisual />
+          <iframe
+            title="Carte — Domaine de la Roche Couloir"
+            src="https://www.google.com/maps?q=Domaine+de+la+Roche+Couloir,+78460+Chevreuse&output=embed"
+            style={{ width: "100%", height: 200, border: 0, display: "block" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
           <div style={{ padding: "18px 20px", display: "flex", alignItems: "center", gap: 14 }}>
             <div style={{ flex: 1 }}>
               <div className="serif" style={{ fontSize: 18, fontWeight: 600, color: "var(--terracotta-d)" }}>{E.venue}</div>

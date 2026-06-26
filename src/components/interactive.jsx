@@ -54,6 +54,41 @@ function downloadIcs() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+/* --- Confettis festifs (sans dépendance) --- */
+function fireConfetti() {
+  if (typeof document === "undefined") return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const colors = ["#C9197D", "#F07F23", "#FBDC3F", "#EFB3DD", "#EC5B2E", "#E07CB8"];
+  const cvs = document.createElement("canvas");
+  cvs.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:300";
+  document.body.appendChild(cvs);
+  const ctx = cvs.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const W = () => window.innerWidth * dpr, H = () => window.innerHeight * dpr;
+  cvs.width = W(); cvs.height = H();
+  const parts = Array.from({ length: 150 }, () => ({
+    x: W() * (0.15 + Math.random() * 0.7), y: -20 * dpr,
+    vx: (Math.random() - 0.5) * 6 * dpr, vy: (Math.random() * 4 + 3) * dpr, g: 0.12 * dpr,
+    s: (Math.random() * 7 + 4) * dpr, rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.3,
+    c: colors[(Math.random() * colors.length) | 0], shape: Math.random() < 0.5 ? 0 : 1,
+  }));
+  const start = performance.now();
+  function frame(t) {
+    const e = t - start;
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+    parts.forEach((p) => {
+      p.vy += p.g; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.globalAlpha = Math.max(0, 1 - e / 3000); ctx.fillStyle = p.c;
+      if (p.shape) ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s);
+      else { ctx.beginPath(); ctx.arc(0, 0, p.s / 2, 0, 7); ctx.fill(); }
+      ctx.restore();
+    });
+    if (e < 3000) requestAnimationFrame(frame); else cvs.remove();
+  }
+  requestAnimationFrame(frame);
+}
+
 function Field({ label, children }) {
   return (
     <label style={{ display: "block" }}>
@@ -77,6 +112,7 @@ export function Rsvp() {
     const rec = await submitRsvp(form);
     setDone(rec);
     setSending(false);
+    if (form.presence === "oui") setTimeout(fireConfetti, 120);
   }
 
   if (done) {

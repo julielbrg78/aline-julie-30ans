@@ -22,7 +22,7 @@ export const PROGRAMME = [
   { time: "17h00", title: "Accueil", desc: "Bulles & retrouvailles", icon: "arrive" },
   { time: "18h00", title: "Apéro Jazz", desc: "On lance la soirée en douceur", icon: "glass" },
   { time: "20h00", title: "Dîner — barbecue géant", desc: "Grand barbecue convivial sous les guirlandes du domaine.", icon: "plate" },
-  { time: "22h00", title: "À vous de jouer !", desc: "Temps libre pour vos surprises", icon: "quote", cta: "Je participe" },
+  { time: "22h00", title: "À vous de jouer !", desc: "Temps libre pour vos surprises", icon: "cake", cta: "Je participe" },
   { time: "23h00", title: "DJ Set & Dancefloor", desc: "On entre officiellement dans la zone « on verra demain ».", icon: "note" },
 ];
 
@@ -40,7 +40,7 @@ export const DRESSCODE = {
     { slot: "dc-hommes", label: "Tenues hommes", hint: "chemise colorée · lin · orange / rose / jaune assumé" },
   ],
   do: ["Élégance", "Couleurs chaudes", "Matières fluides", "Effet « wow mais naturel »"],
-  avoid: ["Noir total (on n'est pas à un enterrement)", "Tenue de bureau", "« J'ai rien trouvé j'ai mis ça »"],
+  avoid: ["Noir total", "Tenue de bureau", "« J'ai rien trouvé j'ai mis ça »"],
 };
 
 /* Galeries */

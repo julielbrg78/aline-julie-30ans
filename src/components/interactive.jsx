@@ -134,12 +134,6 @@ export function Rsvp() {
             </div>
           </Field>
 
-          {form.presence === "oui" && (
-            <Field label="Restrictions alimentaires">
-              <input className="aj-input" value={form.diet} onChange={(e) => set("diet", e.target.value)} placeholder="Végé, allergies, sans alcool…" />
-            </Field>
-          )}
-
           <Field label="Un petit mot aux organisatrices">
             <textarea className="aj-input" rows={3} value={form.message} onChange={(e) => set("message", e.target.value)} placeholder="Hâte d'y être ! …" style={{ resize: "none" }} />
           </Field>

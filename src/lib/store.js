@@ -33,18 +33,19 @@ export function clearLocalRsvp() { saveLS("aj_rsvp_done", null); }
 
 export async function submitRsvp(form) {
   const rec = { ...form, at: Date.now() };
-  // On garde toujours une copie locale pour afficher l'état "confirmé" sur cet appareil.
-  saveLS("aj_rsvp_done", rec);
+  // Si la base partagée est branchée, on EXIGE que l'enregistrement réussisse.
+  // Sinon on lève une erreur pour que l'invité puisse réessayer (au lieu d'un faux "c'est confirmé").
   if (hasBackend) {
-    try {
-      await supabase.from("rsvps").insert({
-        name: form.name,
-        presence: form.presence,
-        diet: form.diet || null,
-        message: form.message || null,
-      });
-    } catch (e) { console.warn("RSVP Supabase échoué (gardé en local) :", e); }
+    const { error } = await supabase.from("rsvps").insert({
+      name: form.name,
+      presence: form.presence,
+      diet: form.diet || null,
+      message: form.message || null,
+    });
+    if (error) throw new Error(error.message || "Enregistrement impossible");
   }
+  // Enregistrement OK (ou mode local sans base) : on garde une copie locale pour l'état "confirmé".
+  saveLS("aj_rsvp_done", rec);
   return rec;
 }
 

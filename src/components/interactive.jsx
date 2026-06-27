@@ -103,16 +103,23 @@ export function Rsvp() {
   const [done, setDone] = useState(() => getLocalRsvp());
   const [form, setForm] = useState({ name: "", presence: "oui", diet: "", message: "" });
   const [sending, setSending] = useState(false);
+  const [err, setErr] = useState("");
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   async function submit(e) {
     e.preventDefault();
     if (!form.name.trim() || sending) return;
     setSending(true);
-    const rec = await submitRsvp(form);
-    setDone(rec);
-    setSending(false);
-    if (form.presence === "oui") setTimeout(fireConfetti, 120);
+    setErr("");
+    try {
+      const rec = await submitRsvp(form);
+      setDone(rec);
+      if (form.presence === "oui") setTimeout(fireConfetti, 120);
+    } catch (e2) {
+      setErr("Oups, ta réponse n'a pas pu être enregistrée. Vérifie ta connexion et réessaie 🙏");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (done) {
@@ -177,6 +184,11 @@ export function Rsvp() {
           <button type="submit" className="btn btn-primary" style={{ marginTop: 4, opacity: sending ? 0.7 : 1 }} disabled={sending}>
             <Icon name="check" size={17} stroke="#fff" /> {sending ? "Envoi…" : "C'est envoyé !"}
           </button>
+          {err && (
+            <p style={{ margin: "2px 0 0", fontSize: 13.5, fontWeight: 500, color: "#A8155F", background: "rgba(168,21,95,0.08)", border: "1px solid rgba(168,21,95,0.25)", borderRadius: 12, padding: "10px 12px", textAlign: "center", lineHeight: 1.4 }}>
+              {err}
+            </p>
+          )}
         </form>
       </Reveal>
     </section>

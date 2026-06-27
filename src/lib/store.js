@@ -49,7 +49,6 @@ export async function submitRsvp(form) {
       body: JSON.stringify({
         name: form.name,
         presence: form.presence,
-        diet: form.diet || null,
         message: form.message || null,
       }),
     });

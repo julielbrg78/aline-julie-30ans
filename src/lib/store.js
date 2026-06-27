@@ -1,6 +1,6 @@
 /* Couche de données — bascule automatiquement entre Supabase (partagé)
    et localStorage (par appareil) selon la configuration. */
-import { supabase, hasBackend } from './supabase.js';
+import { supabase, hasBackend, SUPABASE_URL, SUPABASE_KEY } from './supabase.js';
 
 /* ---------- helpers localStorage ---------- */
 function loadLS(key, fallback) {
@@ -36,13 +36,27 @@ export async function submitRsvp(form) {
   // Si la base partagée est branchée, on EXIGE que l'enregistrement réussisse.
   // Sinon on lève une erreur pour que l'invité puisse réessayer (au lieu d'un faux "c'est confirmé").
   if (hasBackend) {
-    const { error } = await supabase.from("rsvps").insert({
-      name: form.name,
-      presence: form.presence,
-      diet: form.diet || null,
-      message: form.message || null,
+    // Écriture SEULE (return=minimal) : la table rsvps est privée (pas de lecture),
+    // donc on ne demande PAS à relire la ligne — sinon la RLS renvoie une erreur.
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rsvps`, {
+      method: "POST",
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify({
+        name: form.name,
+        presence: form.presence,
+        diet: form.diet || null,
+        message: form.message || null,
+      }),
     });
-    if (error) throw new Error(error.message || "Enregistrement impossible");
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      throw new Error("Enregistrement impossible (" + res.status + ") " + detail);
+    }
   }
   // Enregistrement OK (ou mode local sans base) : on garde une copie locale pour l'état "confirmé".
   saveLS("aj_rsvp_done", rec);
